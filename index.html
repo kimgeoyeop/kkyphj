@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>모바일 청첩장</title>
+
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 카페24 동동 폰트 추가 -->
+    <link href="https://fonts.googleapis.com/css2?family=Cafe24Dongdong&display=swap" rel="stylesheet">
+
     <style>
+        /* 기본 폰트 설정 */
+        body {
+            font-family: 'Cafe24Dongdong', sans-serif;
+            color: #5a5a5a;
+        }
+
         /* 섹션 애니메이션 */
         .fade-in {
             opacity: 0;
@@ -24,6 +35,36 @@
             .section h2 {
                 font-size: 1.5rem;
             }
+        }
+
+        /* 결혼 인사말 섹션 스타일 */
+        .greeting-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('배경이미지URL') center/cover no-repeat;
+            padding: 80px 20px;
+            color: #5a5a5a;
+        }
+        .greeting-section .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .greeting-section h2 {
+            font-family: 'Georgia', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .greeting-section p {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 40px;
+        }
+        .greeting-section img {
+            border: 3px solid #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -47,10 +88,20 @@
 </script>
 
 <!-- 결혼 인사말 섹션 -->
-<section class="section fade-in bg-light" id="greeting">
-    <h2>결혼 인사말</h2>
-    <p>저희의 결혼식에 초대합니다. 함께해 주신다면 큰 축복이 될 것입니다.</p>
-    <img src="img.jpg" class="img-fluid rounded" alt="신랑 신부 사진">
+<section class="section fade-in greeting-section" id="greeting">
+    <div class="container">
+        <div class="greeting-text">
+            <h2>저희의 결혼식에 초대합니다</h2>
+            <p>
+                사랑하는 사람과 인연이 되어<br>
+                이제 두 사람이 새로운 시작을 합니다.<br>
+                기쁨의 날, 함께해 주시면 큰 축복이 될 것입니다.<br>
+                진심으로 초대하오니<br>
+                부디 참석하시어 자리를 빛내주시기 바랍니다.
+            </p>
+        </div>
+        <img src="img.jpg" class="img-fluid rounded-circle shadow" alt="신랑 신부 사진" width="200">
+    </div>
 </section>
 
 <!-- 장소 및 시간 섹션 -->
@@ -124,7 +175,7 @@
     // 카카오 지도 생성
     var mapContainer = document.getElementById('kakaoMap');
     var mapOption = {
-        center: new kakao.maps.LatLng(37.5665, 126.9780),
+        center: new kakao.maps.LatLng(37.50551914129805, 126.88398414751974),
         level: 3
     };
     var map = new kakao.maps.Map(mapContainer, mapOption);
