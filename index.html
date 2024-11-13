@@ -9,7 +9,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- 카페24 동동 폰트 추가 -->
-    <link href="Cafe24Dongdong-v2.0.woff2" rel="stylesheet">
+    <link href="Cafe24Dongdong-v2.0.woff" rel="stylesheet">
 
     <style>
         /* 기본 폰트 설정 */
@@ -94,6 +94,66 @@
             padding: 40px 20px;
             margin: 20px;
         }
+
+                /* 모달 스타일 */
+        .modal-content {
+            background-color: #faf3e0; /* 따뜻한 베이지 배경 */
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .modal-header {
+            border-bottom: none;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: #5a5a5a;
+            font-weight: bold;
+        }
+
+        .modal-body {
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            padding: 30px;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+        }
+
+        .modal-footer {
+            border-top: none;
+            justify-content: center;
+            padding-bottom: 20px;
+        }
+
+        .close {
+            color: #aaa;
+            opacity: 1;
+            font-size: 1.5rem;
+        }
+        .close:hover {
+            color: #555;
+        }
+
+        /* 신랑측, 신부측 버튼 스타일 */
+        .btn-primary {
+            background-color: #d4a373;
+            border: none;
+        }
+        .btn-secondary {
+            background-color: #bcb8b1;
+            border: none;
+        }
+        .btn-primary:hover, .btn-secondary:hover {
+            background-color: #c48c67;
+        }
     </style>
 </head>
 <body>
@@ -121,16 +181,14 @@
         <div class="section-subtitle">Wedding Invitation</div>
         <h2 class="section-title">저희의 결혼식에 초대합니다</h2>
         <p>
-            사랑하는 사람과 인연이 되어<br>
-            이제 두 사람이 새로운 시작을 합니다.<br>
-            기쁨의 날, 함께해 주시면 큰 축복이 될 것입니다.<br>
-            진심으로 초대하오니<br>
-            부디 참석하시어 자리를 빛내주시기 바랍니다.
+            두 사람이 하나가 되는 날,<br>
+            함께해 주시면 큰 기쁨이 되겠습니다.<br>
+            소중한 걸음으로 축복해 주세요.
         </p>
         <img src="img.jpg" class="img-fluid rounded-circle shadow" alt="신랑 신부 사진" width="200">
     </div>
 </section>
-
+    
 <!-- 장소 및 시간 섹션 -->
 <section class="section fade-in" id="location">
     <div class="section-subtitle">Location & Time</div>
@@ -183,6 +241,7 @@
 <section class="section fade-in bg-light" id="contacts">
     <div class="section-subtitle">Contact Information</div>
     <h2 class="section-title">연락처 및 계좌</h2>
+    
     <!-- 신랑측 정보 보기 버튼 -->
     <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#groomModal">
         신랑측 연락처 및 계좌
@@ -236,6 +295,7 @@
     setInterval(updateCountdown, 1000);
 </script>
 
+
 <!-- 신랑측 모달 -->
 <div class="modal fade" id="groomModal" tabindex="-1" role="dialog" aria-labelledby="groomModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -248,16 +308,16 @@
             </div>
             <div class="modal-body">
                 <p><strong>신랑:</strong> 홍길동</p>
-                <p><strong>연락처:</strong>010-0000-0000</p>
-                <p><strong>계좌번호:</strong> 국민은행 111-11-1111-11</p>
+                <p><strong>연락처:</strong> 010-1234-5678</p>
+                <p><strong>계좌번호:</strong> 국민은행 123-45-6789-00</p>
                 <hr>
                 <p><strong>신랑 아버지:</strong> 홍아버지</p>
-                <p><strong>연락처:</strong> 010-0000-0000</p>
-                <p><strong>계좌번호:</strong> 신한은행 111-11-1111-11</p>
+                <p><strong>연락처:</strong> 010-2345-6789</p>
+                <p><strong>계좌번호:</strong> 신한은행 234-56-7890-12</p>
                 <hr>
                 <p><strong>신랑 어머니:</strong> 홍어머니</p>
-                <p><strong>연락처:</strong> 010-0000-0000</p>
-                <p><strong>계좌번호:</strong> 하나은행 111-11-1111-11</p>
+                <p><strong>연락처:</strong> 010-3456-7890</p>
+                <p><strong>계좌번호:</strong> 하나은행 345-67-8901-23</p>
             </div>
         </div>
     </div>
@@ -275,16 +335,16 @@
             </div>
             <div class="modal-body">
                 <p><strong>신부:</strong> 김영희</p>
-                <p><strong>연락처:</strong> 010-0000-0000</p>
-                <p><strong>계좌번호:</strong> 국민은행 111-11-1111-11</p>
+                <p><strong>연락처:</strong> 010-9876-5432</p>
+                <p><strong>계좌번호:</strong> 국민은행 987-65-4321-00</p>
                 <hr>
                 <p><strong>신부 아버지:</strong> 김아버지</p>
-                <p><strong>연락처:</strong> 010-0000-0000</p>
-                <p><strong>계좌번호:</strong> 신한은행 111-11-1111-11</p>
+                <p><strong>연락처:</strong> 010-8765-4321</p>
+                <p><strong>계좌번호:</strong> 신한은행 876-54-3210-12</p>
                 <hr>
                 <p><strong>신부 어머니:</strong> 김어머니</p>
-                <p><strong>연락처:</strong> 010-0000-0000</p>
-                <p><strong>계좌번호:</strong> 하나은행 111-11-1111-11</p>
+                <p><strong>연락처:</strong> 010-7654-3210</p>
+                <p><strong>계좌번호:</strong> 하나은행 765-43-2101-34</p>
             </div>
         </div>
     </div>
