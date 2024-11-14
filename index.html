@@ -251,29 +251,7 @@
         sections.forEach(section => observer.observe(section));
     });
 
-     // 결혼식 날짜 설정 (예: 2024년 12월 1일 12시)
-    const weddingDate = new Date("2025-04-06T15:40:00");
-
-    function updateCountdown() {
-        const now = new Date();
-        const timeRemaining = weddingDate - now;
-
-        if (timeRemaining > 0) {
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-            document.getElementById("countdownTimer").innerHTML =
-                `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
-        } else {
-            document.getElementById("countdownTimer").innerHTML = "축하합니다! 결혼식 당일입니다.";
-            clearInterval(countdownInterval); // 타이머 종료
-        }
-    }
-
-    // 1초마다 updateCountdown 호출
-    const countdownInterval = setInterval(updateCountdown, 1000);
+    
 </script>
 
 <!-- 결혼 인사말 섹션 -->
