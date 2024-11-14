@@ -229,6 +229,29 @@
         .greeting-form button:hover {
             background-color: #c48c67;
         }
+
+        /* 남은 시간 표시 스타일 */
+        .countdown-container {
+            display: inline-block;
+            background-color: #faf3e0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin-top: 20px;
+            color: #4a4a4a;
+        }
+
+        .countdown-title {
+            font-size: 1.5rem;
+            color: #4a4a4a;
+            margin-bottom: 10px;
+        }
+
+        .countdown-timer {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #d4a373;
+        }
     </style>
 </head>
 <body>
@@ -248,6 +271,30 @@
 
         sections.forEach(section => observer.observe(section));
     });
+
+     // 결혼식 날짜 설정 (예: 2024년 12월 1일 12시)
+    const weddingDate = new Date("2025-04-06T15:40:00");
+
+    function updateCountdown() {
+        const now = new Date();
+        const timeRemaining = weddingDate - now;
+
+        if (timeRemaining > 0) {
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById("countdownTimer").innerHTML =
+                `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+        } else {
+            document.getElementById("countdownTimer").innerHTML = "축하합니다! 결혼식 당일입니다.";
+            clearInterval(countdownInterval); // 타이머 종료
+        }
+    }
+
+    // 1초마다 updateCountdown 호출
+    const countdownInterval = setInterval(updateCountdown, 1000);
 </script>
 
 <!-- 결혼 인사말 섹션 -->
@@ -268,9 +315,11 @@
 <section class="section fade-in" id="location">
     <div class="section-subtitle">Location & Time</div>
     <h2 class="section-title">장소 및 시간</h2>
-    <p>장소: 서울 특별시 강남구 웨딩홀<br>일시: 2024년 12월 24일 오후 2시</p>
-    <!-- 남은 시간 표시 -->
-    <p id="countdown"></p>
+    <p>장소: 서울 특별시 강남구 웨딩홀<br>일시: 2025년 04월 06일 오후 3시</p>
+    <div class="countdown-container">
+        <div class="countdown-title">결혼식까지 남은 시간</div>
+        <div class="countdown-timer" id="countdownTimer">00일 00시간 00분 00초</div>
+    </div>
 </section>
 
 <!-- 갤러리 섹션 -->
@@ -330,8 +379,8 @@
 
 <!-- 축하 인사말 남기기 섹션 -->
 <section class="section fade-in" id="messages">
-    <div class="section-subtitle">Leave a Message</div>
-    <h2 class="section-title">축하 인사말 남기기</h2>
+    <div class="section-subtitle">Guestbook</div>
+    <h2 class="section-title">방명록</h2>
     <ul class="greeting-list">
         <!-- 예시 인사말 리스트 -->
         <li class="greeting-item">
@@ -348,7 +397,6 @@
 
     <!-- 축하 인사말 입력 폼 -->
     <div class="greeting-form">
-        <h4>축하 인사말 남기기</h4>
         <form>
             <input type="text" placeholder="성명" required>
             <input type="password" placeholder="비밀번호" required>
